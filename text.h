@@ -48,6 +48,15 @@ class text
             {
                 update_msg = _msg;
             } 
+
+            if (_textSurface)
+            {
+                SDL_FreeSurface(_textSurface);
+            }
+            if (_textTexture)
+            {
+                SDL_DestroyTexture(_textTexture);
+            }
             
             _textSurface = TTF_RenderText_Solid(_font, update_msg.c_str(), _textColor);
             _textTexture = SDL_CreateTextureFromSurface(&renderer, _textSurface);
